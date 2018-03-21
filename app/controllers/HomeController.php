@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use app\models\ActicleModel;
+use services\View;
 
 class HomeController extends BaseController
 {
@@ -19,5 +20,11 @@ class HomeController extends BaseController
     public function getActivity(){
         $data = ActicleModel::first();
         require dirname(__FILE__).'/../views/activity.php';
+    }
+
+    public function showView()
+    {
+        $this->view = View::make('view')->with('acticle',ActicleModel::first())
+            ->withTitle('JMaatFrame :-D');
     }
 }

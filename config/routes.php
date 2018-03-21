@@ -7,11 +7,13 @@ Macaw::get('fuck',function(){
     echo '成功';
 });
 
-Macaw::get('/home','app\\controllers\\HomeController@home');
+Macaw::get('','app\\controllers\\HomeController@home');
 Macaw::get('/home/activity','app\\controllers\\HomeController@getActivity');
+Macaw::get('/home/view','app\\controllers\\HomeController@showView');
 
 Macaw::get('(:all)',function ($fu){
-    echo '未匹配到路由<br>'.$fu;
+//    echo '未匹配到路由<br>'.$fu;
+    throw new Exception("路由无匹配项 404 Not Found");
 });
 
 Macaw::dispatch();
