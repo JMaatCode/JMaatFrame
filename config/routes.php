@@ -10,6 +10,8 @@ Macaw::get('fuck',function(){
 Macaw::get('','app\\controllers\\HomeController@home');
 Macaw::get('/home/activity','app\\controllers\\HomeController@getActivity');
 Macaw::get('/home/view','app\\controllers\\HomeController@showView');
+Macaw::get('/home/sms','app\\controllers\\HomeController@sms');
+Macaw::get('/home/redis','app\\controllers\\HomeController@redis');
 
 Macaw::get('(:all)',function ($fu){
 //    echo '未匹配到路由<br>'.$fu;

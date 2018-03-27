@@ -8,11 +8,14 @@
 
 namespace app\controllers;
 
+use Nette\Mail\SmtpMailer;
+use services\Mail;
 use services\View;
 
 class BaseController
 {
     protected $view;
+    protected $mail;
 
     public function __construct()
     {
@@ -25,6 +28,11 @@ class BaseController
         if ( $view instanceof View){
             extract($view->data);
             require $view->view;
+        }
+        $mail = $this->mail;
+        if ( $mail instanceof Mail){
+            $mailer = new SmtpMailer($mail->config);
+            return $mailer->send($mail);
         }
     }
 }

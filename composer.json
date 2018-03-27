@@ -3,7 +3,9 @@
 		"noahbuscher/macaw": "dev-master",
 		"illuminate/database": "*",
 		"illuminate/routing": "^5.6",
-		"filp/whoops": "*"
+		"filp/whoops": "*",
+		"nette/mail": "*",
+		"predis/predis": "*"
 	},
 	"autoload":{
 		"classmap":[
